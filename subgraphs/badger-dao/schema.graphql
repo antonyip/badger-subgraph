@@ -35,7 +35,6 @@ interface Snapshot {
 #####################
 # Entities
 #####################
-
 type Token implements ERC20 @entity {
   id: ID!
   name: String!
@@ -103,3 +102,21 @@ type User @entity {
   id: ID!
   settBalances: [UserSettBalance!]! @derivedFrom(field: "user")
 }
+
+## NFTS -- Start
+type NFTTokenBalance @entity {
+  id: ID!
+  token: NFTToken!
+  amount: BigInt!
+  owner: NFTUser
+}
+type NFTToken @entity {
+  id: ID!
+  tokenId: BigInt!
+}
+
+type NFTUser @entity {
+  id: ID!
+  tokens:[NFTTokenBalance!] @derivedFrom(field:"owner")
+}
+## NFTS -- End

@@ -91,7 +91,70 @@ dataSources:
           handler: handleTransfer
       file: ./src/handlers/sett-affiliate-handler.ts
   {{/affiliateSetts}}
+  {{#nfts}}
+  - kind: ethereum/contract
+    name: BadgerERC1155
+    network: {{ chain }}
+    source:
+      address: "{{ add1 }}"
+      abi: BadgerERC1155
+      startBlock: 10734502
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - NFT
+      abis:
+        - name: BadgerERC1155
+          file: ./abis/BadgerERC1155.json
+      eventHandlers:
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleNFTTransfer
+      file: ./src/handlers/nft-handler.ts
+      
+  - kind: ethereum/contract
+    name: Proxy
+    network: {{ chain }}
+    source:
+      address: "{{ add2 }}"
+      abi: BadgerERC1155
+      startBlock: 10734502
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - NFT
+      abis:
+        - name: BadgerERC1155
+          file: ./abis/BadgerERC1155.json
+      eventHandlers:
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleNFTTransfer
+      file: ./src/handlers/nft-handler.ts
   
+  - kind: ethereum/contract
+    name: MemeLtd
+    network: {{ chain }}
+    source:
+      address: "{{ add3 }}"
+      abi: MemeLtd
+      startBlock: 10734502
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - NFT
+      abis:
+        - name: MemeLtd
+          file: ./abis/MemeLtd.json
+      eventHandlers:
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleMemeNFTTransfer
+      file: ./src/handlers/nft-handler.ts
+  {{/nfts}}
 templates:
   - kind: ethereum/contract
     name: SettVault

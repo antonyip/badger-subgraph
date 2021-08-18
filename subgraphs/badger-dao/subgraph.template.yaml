@@ -155,6 +155,80 @@ dataSources:
           handler: handleMemeNFTTransfer
       file: ./src/handlers/nft-handler.ts
   {{/nfts}}
+  {{#tokens}}
+  # ===== Tokens =====
+  - kind: ethereum/contract
+    name: Badger
+    network: {{ chain }}
+    source:
+      address: "{{ badgerAddress }}"
+      abi: MiniMeToken
+      startBlock: 11348423
+    mapping:
+      kind: ethereum/events
+      language: wasm/assemblyscript
+      apiVersion: 0.0.4
+      entities:
+        - TokenBalance
+        - Token
+      abis:
+        - name: MiniMeToken
+          file: ./abis/MiniMeToken.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleBadgerTransfer
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: Digg
+    network: {{ chain }}
+    source:
+      address: "{{ diggAddress }}"
+      abi: UFragments
+      startBlock: 11668293
+    mapping:
+      kind: ethereum/events
+      language: wasm/assemblyscript
+      apiVersion: 0.0.4
+      entities:
+        - TokenBalance
+        - Token
+      abis:
+        - name: UFragments
+          file: ./abis/UFragments.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleDiggTransfer
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: ibBTC
+    network: {{ chain }}
+    source:
+      address: "{{ ibBTCAddress }}"
+      abi: bBTC
+      startBlock: 12342123
+    mapping:
+      kind: ethereum/events
+      language: wasm/assemblyscript
+      apiVersion: 0.0.4
+      entities:
+        - TokenBalance
+        - Token
+      abis:
+        - name: bBTC
+          file: ./abis/bBTC.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleIbBTCTransfer
+      file: ./src/mapping.ts
+  {{/tokens}}
 templates:
   - kind: ethereum/contract
     name: SettVault

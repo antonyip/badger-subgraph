@@ -1,5 +1,5 @@
 import { TreeDistribution } from '../../generated/harvestHbtcCrv/StrategyConvexStakingOptimizer';
-import { getOrCreateTreeDistribution } from '../utils/helpers/tree/distribution';
+import { getOrCreateTreeDistribution } from './utils/helpers/tree/distribution';
 
 export function handleTreeDistribution(event: TreeDistribution): void {
   let treeDistributionID = event.address

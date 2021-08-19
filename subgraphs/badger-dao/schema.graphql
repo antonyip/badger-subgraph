@@ -435,3 +435,11 @@ type Token_TokenBalance @entity {
 }
 
 ## Tokens -- End
+
+type TreeDistribution @entity {
+  id: ID!
+  token: Token!
+  amount: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+}

@@ -1,7 +1,7 @@
 import { Address } from '@graphprotocol/graph-ts';
 
-import { TreeDistribution as TreeDistributionEvent } from '../../../../generated/harvestHbtcCrv/StrategyConvexStakingOptimizer';
-import { TreeDistribution as TreeDistributionEntity } from '../../../../generated/schema';
+import { TreeDistribution as TreeDistributionEvent } from '../../../../../generated/harvestHbtcCrv/StrategyConvexStakingOptimizer';
+import { TreeDistribution as TreeDistributionEntity } from '../../../../../generated/schema';
 import { getOrCreateToken } from '../yVault/token';
 
 export function getOrCreateTreeDistribution(

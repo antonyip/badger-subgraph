@@ -144,7 +144,7 @@ dataSources:
     name: MemeLtd
     network: {{ chain }}
     source:
-      address: "{{ MemeLtd }}"
+      address: "{{ MemeLtdAddress }}"
       abi: MemeLtd
       startBlock: 10734502
     mapping:

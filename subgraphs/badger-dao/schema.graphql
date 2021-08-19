@@ -455,7 +455,7 @@ type TT_Token @entity {
   name: String!
 }
 
-type TT_Vaults {
+type TT_Vaults @entity {
   id: ID!
   token: TT_Token!
   activeDeposits: BigInt!

@@ -1,20 +1,20 @@
 import { Address, log } from '@graphprotocol/graph-ts';
 
-import { Controller as ControllerContract } from '../../../../generated/nativeBadgerSett/Controller';
-import { Strategy as StrategyContract } from '../../../../generated/nativeBadgerSett/Strategy';
-import { V1Contract } from '../../../../generated/nativeBadgerSett/V1Contract';
+import { Controller as ControllerContract } from '../../../../../generated/BADGER/Controller';
+import { Strategy as StrategyContract } from '../../../../../generated/BADGER/Strategy';
+import { V1Contract } from '../../../../../generated/BADGER/V1Contract';
 import {
-  Controller,
-  Deposit,
-  Harvest,
-  Strategy,
-  Transaction,
-  Transfer,
-  Vault,
-  Withdrawal,
-} from '../../../../generated/schema';
-import { SimpleWrapperGatedUpgradeable } from '../../../../generated/SimpleWrapperGatedUpgradeable/SimpleWrapperGatedUpgradeable';
-import { Strategy as StrategyABI } from '../../../../generated/templates';
+  Token_Controller as Controller,
+  Token_Deposit as Deposit,
+  Token_Harvest as Harvest,
+  Token_Strategy as Strategy,
+  Token_Transaction as Transaction,
+  Token_Transfer as Transfer,
+  Token_Vault as Vault,
+  Token_Withdrawal as Withdrawal,
+} from '../../../../../generated/schema';
+import { SimpleWrapperGatedUpgradeable } from '../../../../../generated/SimpleWrapperGatedUpgradeable/SimpleWrapperGatedUpgradeable';
+import { Strategy as StrategyABI } from '../../../../../generated/templates';
 import { BIGDECIMAL_ZERO, BIGINT_ZERO } from '../../constants';
 import { toDecimal } from '../../decimals';
 import { getOrCreateToken } from './token';

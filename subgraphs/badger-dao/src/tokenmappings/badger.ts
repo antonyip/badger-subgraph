@@ -1,7 +1,7 @@
 import { Address } from '@graphprotocol/graph-ts';
-
-import { Transfer } from '../../../generated/Badger/MiniMeToken';
+import { Transfer } from '../../generated/Badger/MiniMeToken';
 import { getOrCreateTokenBalance } from './utils/helpers/token/balance';
+
 export function handleBadgerTransfer(event: Transfer): void {
   let badgerToken = Address.fromString('0x3472a5a71965499acd81997a54bba8d852c6e53d');
   let fromId = event.params._from

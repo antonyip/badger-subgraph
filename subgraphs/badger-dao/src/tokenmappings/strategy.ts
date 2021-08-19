@@ -1,15 +1,15 @@
 import { Address } from '@graphprotocol/graph-ts';
 
-import { Harvest } from '../../generated/nativeBadgerSett/Strategy';
-import { BIGINT_ONE } from '../utils/constants';
-import { toDecimal } from '../utils/decimals';
+import { Harvest } from '../../generated/BADGER/Strategy';
+import { BIGINT_ONE } from './utils/constants';
+import { toDecimal } from './utils/decimals';
 import {
   getOrCreateHarvest,
   getOrCreateStrategy,
   getOrCreateToken,
   getOrCreateTransaction,
   getOrCreateVault,
-} from '../utils/helpers';
+} from './utils/helpers';
 
 export function handleHarvest(event: Harvest): void {
   let strategy = getOrCreateStrategy(event.address);

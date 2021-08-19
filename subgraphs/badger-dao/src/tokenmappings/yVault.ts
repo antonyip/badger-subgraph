@@ -1,9 +1,9 @@
 import { Address, BigInt } from '@graphprotocol/graph-ts';
 
-import { Transfer } from '../../generated/nativeBadgerSett/V1Contract';
-import { Vault } from '../../generated/schema';
-import { BIGINT_ZERO, ZERO_ADDRESS } from '../utils/constants';
-import { toDecimal } from '../utils/decimals';
+import { Transfer } from '../../generated/BADGER/V1Contract';
+import { Token_Vault as Vault } from '../../generated/schema';
+import { BIGINT_ZERO, ZERO_ADDRESS } from './utils/constants';
+import { toDecimal } from './utils/decimals';
 import {
   getOrCreateAccount,
   getOrCreateAccountVaultBalance,
@@ -14,7 +14,7 @@ import {
   getOrCreateVaultDeposit,
   getOrCreateVaultTransfer,
   getOrCreateVaultWithdrawal,
-} from '../utils/helpers';
+} from './utils/helpers';
 
 function handleDeposit(
   event: Transfer,

@@ -57,6 +57,12 @@ dataSources:
           file: ./abis/ERC20.json
         - name: BadgerSett
           file: ./abis/BadgerSett.json
+        - name: Strategy
+          file: ./abis/Strategy.json
+        - name: V1Contract
+          file: ./abis/V1Contract.json
+        - name: Controller
+          file: ./abis/Controller.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
@@ -179,7 +185,7 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleBadgerTransfer
-      file: ./src/mapping.ts
+      file: ./src/tokenmappings/mapping.ts
 
   - kind: ethereum/contract
     name: Digg
@@ -203,10 +209,10 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleDiggTransfer
-      file: ./src/mapping.ts
+      file: ./src/tokenmappings/mapping.ts
 
   - kind: ethereum/contract
-    name: ibBTC
+    name: ibBTCToken
     network: {{ chain }}
     source:
       address: "{{ ibBTCAddress }}"
@@ -227,8 +233,42 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleIbBTCTransfer
-      file: ./src/mapping.ts
+      file: ./src/tokenmappings/mapping.ts
   {{/tokens}}
+  # ===== Wrappers =====
+  - kind: ethereum/contract
+    name: SimpleWrapperGatedUpgradeable
+    network: mainnet
+    source:
+      address: "0x4b92d19c11435614CD49Af1b589001b7c08cD4D5"
+      abi: SimpleWrapperGatedUpgradeable
+      startBlock: 12246700
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Vault
+        - Deposit
+        - Withdraw
+        - Harvest
+        - Transfer
+        - AccountVaultBalance
+        - Account
+        - Token
+      abis:
+        - name: SimpleWrapperGatedUpgradeable
+          file: ./abis/SimpleWrapperGatedUpgradeable.json
+        - name: Controller
+          file: ./abis/Controller.json
+        - name: Strategy
+          file: ./abis/Strategy.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleAffiliateShareTransfer
+      file: ./src/tokenmappings/mapping.ts
 templates:
   - kind: ethereum/contract
     name: SettVault
@@ -355,3 +395,32 @@ templates:
         - event: StrategyAddedToQueue(indexed address)
           handler: handleStrategyAddedToQueue
       file: ./src/handlers/sett-v2-handler.ts
+  - name: Strategy
+    kind: ethereum/contract
+    network: {{ chain }}
+    source:
+      abi: Strategy
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token_Vault
+        - Token_Deposit
+        - Token_Withdraw
+        - Token_Harvest
+        - Token_Transfer
+        - Token_AccountVaultBalance
+        - Token_Account
+        - Token_Token
+      abis:
+        - name: Strategy
+          file: ./abis/Strategy.json
+        - name: V1Contract
+          file: ./abis/V1Contract.json
+        - name: Controller
+          file: ./abis/Controller.json
+      eventHandlers:
+        - event: Harvest(uint256,indexed uint256)
+          handler: handleHarvest
+      file: ./src/tokenmappings/mapping.ts

@@ -1,7 +1,7 @@
 import { Address } from '@graphprotocol/graph-ts';
 
 import { Transfer, UFragments } from '../../generated/Digg/UFragments';
-import { getOrCreateTokenBalance } from '../utils/helpers/token/balance';
+import { getOrCreateTokenBalance } from './utils/helpers/token/balance';
 export function handleDiggTransfer(event: Transfer): void {
   let diggToken = Address.fromString('0x798d1be841a82a273720ce31c822c61a67a601c3');
   let digg = UFragments.bind(diggToken);

@@ -1,4 +1,7 @@
-import { Account, AccountVaultBalance } from '../../../../generated/schema';
+import {
+   Token_Account as Account,
+   Token_AccountVaultBalance as AccountVaultBalance
+} from '../../../../../generated/schema';
 import { BIGDECIMAL_ZERO, BIGINT_ZERO } from '../../constants';
 
 export function getOrCreateAccount(

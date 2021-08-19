@@ -238,7 +238,7 @@ dataSources:
   # ===== Wrappers =====
   - kind: ethereum/contract
     name: SimpleWrapperGatedUpgradeable
-    network: mainnet
+    network: {{ chain }}
     source:
       address: "0x4b92d19c11435614CD49Af1b589001b7c08cD4D5"
       abi: SimpleWrapperGatedUpgradeable

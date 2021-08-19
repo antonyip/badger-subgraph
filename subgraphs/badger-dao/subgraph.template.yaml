@@ -102,7 +102,7 @@ dataSources:
     name: BadgerERC1155
     network: {{ chain }}
     source:
-      address: "{{ add1 }}"
+      address: "{{ BADGERNFTAddress }}"
       abi: BadgerERC1155
       startBlock: 10734502
     mapping:
@@ -123,7 +123,7 @@ dataSources:
     name: Proxy
     network: {{ chain }}
     source:
-      address: "{{ add2 }}"
+      address: "{{ SomeProxyAddress }}"
       abi: BadgerERC1155
       startBlock: 10734502
     mapping:
@@ -144,7 +144,7 @@ dataSources:
     name: MemeLtd
     network: {{ chain }}
     source:
-      address: "{{ add3 }}"
+      address: "{{ MemeLtd }}"
       abi: MemeLtd
       startBlock: 10734502
     mapping:

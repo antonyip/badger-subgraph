@@ -436,6 +436,8 @@ type Token_TokenBalance @entity {
 
 ## Tokens -- End
 
+
+## Harvests -- Start
 type TreeDistribution @entity {
   id: ID!
   token: Token!
@@ -443,3 +445,22 @@ type TreeDistribution @entity {
   blockNumber: BigInt!
   timestamp: BigInt!
 }
+## Harvests -- End
+
+## TokenTerminal -- Start
+type TT_Token @entity {
+  id: ID!
+  symbol: String!
+  decimals: BigInt!
+  name: String!
+}
+
+type TT_Vaults {
+  id: ID!
+  token: TT_Token!
+  activeDeposits: BigInt!
+  tokensInvested: BigInt!
+  totalFeesGenerated: BigInt!
+  protocolFeesAccrued: BigInt!
+}
+## TokenTerminal -- Start

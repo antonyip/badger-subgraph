@@ -96,11 +96,6 @@
       "startBlock": 12679976
     },
     {
-      "name": "tricrypto2",
-      "address": "0x27e98fc7d05f54e544d16f58c194c2d7ba71e3b5",
-      "startBlock": 12965932
-    },
-    {
       "name": "cvx",
       "address": "0x53C8E199eb2Cb7c01543C137078a038937a68E40",
       "startBlock": 12678302
@@ -109,6 +104,13 @@
       "name": "cvxcrv",
       "address": "0x2B5455aac8d64C14786c3a29858E43b5945819C0",
       "startBlock": 12679976
+    }
+  ],
+  "tricrypto2sett": [
+    {
+      "name": "Tricrypto2",
+      "address": "0x27e98fc7d05f54e544d16f58c194c2d7ba71e3b5",
+      "startBlock": 12965932
     }
   ],
   "affiliateSetts": [

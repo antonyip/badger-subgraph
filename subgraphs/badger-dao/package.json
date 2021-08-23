@@ -9,6 +9,7 @@
     "codegen": "graph codegen subgraph.yaml",
     "build": "graph build subgraph.yaml",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ antonyip/badger_community_subgraph6",
+    "deploy4": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ antonyip/badger_community_subgraph4",
     "deploy:mainnet": "graph deploy --studio badger-dao",
     "deploy:matic": "graph deploy --node https://api.thegraph.com/deploy/ axejintao/badger-dao-polygon",
     "deploy:xdai": "graph deploy --node https://api.thegraph.com/deploy/ axejintao/badger-dao-xdai",
@@ -25,7 +26,7 @@
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.21.1",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.14.1",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",

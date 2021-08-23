@@ -35,6 +35,39 @@ dataSources:
           handler: handleRemoveVault
       file: ./src/handlers/registry-handler.ts
   {{/registry}}
+  {{#registryV2}}
+  - kind: ethereum/contract
+    name: VaultRegistryV2
+    network: {{ chain }}
+    source:
+      address: "{{ address }}"
+      abi: VaultRegistryV2
+      startBlock: {{ startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - Token
+      abis:
+        - name: VaultRegistryV2
+          file: ./abis/VaultRegistryV2.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: BadgerSett
+          file: ./abis/BadgerSett.json
+        - name: BadgerSettV2
+          file: ./abis/BadgerSett.json
+      eventHandlers:
+        - event: NewVault(address,string,address)
+          handler: handleNewVaultV2
+        - event: PromoteVault(address,string,address,uint8)
+          handler: handlePromoteVaultV2
+        - event: RemoveVault(address,string,address)
+          handler: handleRemoveVaultV2
+      file: ./src/handlers/registry-handler.ts
+  {{/registryV2}}
   {{#setts}}
   - kind: ethereum/contract
     name: {{ name }}

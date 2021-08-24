@@ -4,14 +4,14 @@ import { Controller as ControllerContract } from '../../../../../generated/BADGE
 import { Strategy as StrategyContract } from '../../../../../generated/BADGER/Strategy';
 import { V1Contract } from '../../../../../generated/BADGER/V1Contract';
 import {
-  Token_Controller as Controller,
-  Token_Deposit as Deposit,
-  Token_Harvest as Harvest,
-  Token_Strategy as Strategy,
-  Token_Transaction as Transaction,
-  Token_Transfer as Transfer,
-  Token_Vault as Vault,
-  Token_Withdrawal as Withdrawal,
+  Yearn_Controller as Controller,
+  Yearn_Deposit as Deposit,
+  Yearn_Harvest as Harvest,
+  Yearn_Strategy as Strategy,
+  Yearn_Transaction as Transaction,
+  Yearn_Transfer as Transfer,
+  Yearn_Vault as Vault,
+  Yearn_Withdrawal as Withdrawal,
 } from '../../../../../generated/schema';
 import { Strategy as StrategyABI } from '../../../../../generated/templates';
 import { BIGDECIMAL_ZERO, BIGINT_ZERO } from '../../constants';

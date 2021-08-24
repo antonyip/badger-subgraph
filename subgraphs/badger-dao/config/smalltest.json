@@ -5,10 +5,8 @@
     "startBlock": 12883010
   },
   "setts": [
-  ],
-  "tricrypto2settt": [
     {
-      "name": "Tricrypto2",
+      "name": "tricrypto2",
       "address": "0x27e98fc7d05f54e544d16f58c194c2d7ba71e3b5",
       "startBlock": 12965932
     }

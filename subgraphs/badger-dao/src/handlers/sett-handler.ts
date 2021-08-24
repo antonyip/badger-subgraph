@@ -8,7 +8,7 @@ import { loadSettV2 } from '../entities/badger-sett-v2';
 import { loadSettSnapshot } from '../entities/sett-snapshot';
 import { isValidUser, loadUser } from '../entities/user';
 import { depositBalance, loadUserBalance, withdrawBalance } from '../entities/user-sett-balance';
-import { handleShareTransfer } from '../tokenmappings/yVault';
+import { handleShareTransfer } from '../yearn/yVault';
 
 export function handleTransferSetts(event: Transfer): void {
   handleTransfer(event);

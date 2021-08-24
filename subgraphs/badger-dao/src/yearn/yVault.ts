@@ -1,7 +1,7 @@
 import { Address, BigInt } from '@graphprotocol/graph-ts';
 
 import { Transfer } from '../../generated/BADGER/V1Contract';
-import { Token_Vault as Vault } from '../../generated/schema';
+import { Yearn_Vault as Vault } from '../../generated/schema';
 import { BIGINT_ZERO, ZERO_ADDRESS } from './utils/constants';
 import { toDecimal } from './utils/decimals';
 import {

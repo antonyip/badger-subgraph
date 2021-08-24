@@ -218,7 +218,7 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleBadgerTransfer
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: Digg
@@ -242,7 +242,7 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleDiggTransfer
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: ibBTCToken
@@ -266,7 +266,7 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleIbBTCTransfer
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
   {{/tokens}}
   {{#harvests}}
   - kind: ethereum/contract
@@ -291,7 +291,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: harvestObtcCrv
@@ -315,7 +315,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: harvestBbtcCrv
@@ -339,7 +339,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: harvestPbtcCrv
@@ -363,7 +363,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: harvestTriCrypto
@@ -387,7 +387,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: harvestTriCrypto2
@@ -411,7 +411,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
   
 
   - kind: ethereum/contract
@@ -436,7 +436,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: harvestSbtcCrv
@@ -460,7 +460,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 
   - kind: ethereum/contract
     name: harvestTbtcCrv
@@ -484,7 +484,7 @@ dataSources:
       eventHandlers:
         - event: TreeDistribution(indexed address,uint256,indexed uint256,uint256)
           handler: handleTreeDistribution
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts
 {{/harvests}}
 templates:
   - kind: ethereum/contract
@@ -640,4 +640,4 @@ templates:
       eventHandlers:
         - event: Harvest(uint256,indexed uint256)
           handler: handleHarvest
-      file: ./src/tokenmappings/mapping.ts
+      file: ./src/yearn/mapping.ts

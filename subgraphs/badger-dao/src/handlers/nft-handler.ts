@@ -1,7 +1,7 @@
 
 import { TransferSingle } from '../../generated/BadgerERC1155/BadgerERC1155'
 import { TransferSingle as TransferSingleMeme} from '../../generated/MemeLtd/MemeLtd'
-import { NFTUser as User, NFTToken as Token, NFTTokenBalance as TokenBalance } from '../../generated/schema'
+import { NFT_User as User, NFT_Token as Token, NFT_TokenBalance as TokenBalance } from '../../generated/schema'
 import { ZERO } from '../constants';
 
 export function handleNFTTransfer(event: TransferSingle): void {

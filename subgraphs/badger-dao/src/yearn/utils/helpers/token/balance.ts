@@ -1,5 +1,5 @@
 import { Address } from '@graphprotocol/graph-ts';
-import { Token_TokenBalance as TokenBalance } from '../../../../../generated/schema';
+import { Yearn_TokenBalance as TokenBalance } from '../../../../../generated/schema';
 import { BIGINT_ZERO } from '../../constants';
 import { getOrCreateToken } from '../yVault/token';
 export function getOrCreateTokenBalance(id: String, address: Address): TokenBalance {

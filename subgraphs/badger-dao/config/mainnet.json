@@ -132,5 +132,5 @@
     "diggAddress": "0x798D1bE841a82a273720CE31c822C61a67a601C3",
     "ibBTCAddress": "0xc4E15973E6fF2A35cC804c2CF9D2a1b817a8b40F"
   }],
-  "harvests" : []
+  "harvests" : [{}]
 }

@@ -1,7 +1,7 @@
 import { Address } from '@graphprotocol/graph-ts';
 
 import { ERC20 } from '../../../../../generated/BADGER/ERC20';
-import { Token_Token as Token } from '../../../../../generated/schema';
+import { Yearn_Token as Token } from '../../../../../generated/schema';
 import { DEFAULT_DECIMALS } from '../../decimals';
 
 export function getOrCreateToken(tokenAddress: Address, persist: boolean = true): Token {

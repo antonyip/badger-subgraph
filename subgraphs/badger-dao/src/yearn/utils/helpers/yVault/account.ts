@@ -1,6 +1,6 @@
 import {
-   Token_Account as Account,
-   Token_AccountVaultBalance as AccountVaultBalance
+   Yearn_Account as Account,
+   Yearn_AccountVaultBalance as AccountVaultBalance
 } from '../../../../../generated/schema';
 import { BIGDECIMAL_ZERO, BIGINT_ZERO } from '../../constants';
 

@@ -1,10 +1,21 @@
 {
   "chain": "mainnet",
+  "registry": {
+    "address": "0x22765948A3d5048F3644b81792e4E1aA7ea3da4a",
+    "startBlock": 12883010
+  },
   "setts": [
+  ],
+  "tricrypto2settt": [
     {
-      "name": "tricrypto2",
+      "name": "Tricrypto2",
       "address": "0x27e98fc7d05f54e544d16f58c194c2d7ba71e3b5",
       "startBlock": 12965932
     }
-  ]
+  ],
+  "affiliateSetts": [
+  ],
+  "nfts": [],
+  "tokens": [],
+  "harvests" : []
 }

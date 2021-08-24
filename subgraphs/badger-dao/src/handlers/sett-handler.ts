@@ -10,13 +10,17 @@ import { isValidUser, loadUser } from '../entities/user';
 import { depositBalance, loadUserBalance, withdrawBalance } from '../entities/user-sett-balance';
 import { handleShareTransfer } from '../tokenmappings/yVault';
 
+export function handleTransferSetts(event: Transfer): void {
+  handleTransfer(event);
+  handleShareTransfer(event);
+}
+
 export function handleTransfer(event: Transfer): void {
   let timestamp = event.block.timestamp.toI32();
   let from = event.params.from;
   let to = event.params.to;
   let value = event.params.value;
   handleSettTokenTransfer(timestamp, event.address, SettType.v1, from, to, value);
-  handleShareTransfer(event);
 }
 
 export function depositSett(timestamp: i32, sett: Sett, share: BigInt, token: BigInt): void {

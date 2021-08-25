@@ -98,7 +98,7 @@ dataSources:
           file: ./abis/Controller.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransferSetts
+          handler: handleTransferLegacy
       file: ./src/handlers/sett-legacy-handler.ts
   {{/legacysetts}}
   {{#setts}}

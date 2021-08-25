@@ -68,7 +68,7 @@ dataSources:
           handler: handleRemoveVaultV2
       file: ./src/handlers/registry-handler.ts
   {{/registryV2}}
-  {{#setts}}
+  {{#legacysetts}}
   - kind: ethereum/contract
     name: {{ name }}
     network: {{ chain }}
@@ -99,6 +99,33 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransferSetts
+      file: ./src/handlers/sett-legacy-handler.ts
+  {{/legacysetts}}
+  {{#setts}}
+  - kind: ethereum/contract
+    name: {{ name }}
+    network: {{ chain }}
+    source:
+      address: "{{ address }}"
+      abi: BadgerSett
+      startBlock: {{ startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Sett
+        - User
+        - Token
+        - UserSettBalance
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: BadgerSett
+          file: ./abis/BadgerSett.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: ./src/handlers/sett-handler.ts
   {{/setts}}
   {{#affiliateSetts}}
@@ -612,6 +639,7 @@ templates:
         - event: StrategyAddedToQueue(indexed address)
           handler: handleStrategyAddedToQueue
       file: ./src/handlers/sett-v2-handler.ts
+  {{#strategyTemplate}}
   - name: Strategy
     kind: ethereum/contract
     network: {{ chain }}
@@ -641,3 +669,4 @@ templates:
         - event: Harvest(uint256,indexed uint256)
           handler: handleHarvest
       file: ./src/yearn/mapping.ts
+  {{/strategyTemplate}}

@@ -8,7 +8,7 @@
     "address": "0xfda7eb6f8b7a9e9fcfd348042ae675d1d652454f",
     "startBlock": 13006329  
   },
-  "setts": [
+  "legacysetts": [
     {
       "name": "sBTCCRV",
       "address": "0xd04c48A53c111300aD41190D63681ed3dAd998eC",
@@ -132,5 +132,6 @@
     "diggAddress": "0x798D1bE841a82a273720CE31c822C61a67a601C3",
     "ibBTCAddress": "0xc4E15973E6fF2A35cC804c2CF9D2a1b817a8b40F"
   }],
-  "harvests" : [{}]
+  "harvests" : [{}],
+  "strategyTemplate" : [{}]
 }

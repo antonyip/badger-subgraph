@@ -1,7 +1,11 @@
 import { Sett } from '../../generated/schema';
 import { SettVault, SettVaultV2 } from '../../generated/templates';
 import { NewVault, PromoteVault, RemoveVault } from '../../generated/VaultRegistry/VaultRegistry';
-import { NewVault as NewVaultV2 } from '../../generated/VaultRegistryV2/VaultRegistryV2';
+import {
+  NewVault as NewVaultV2,
+  PromoteVault as PromoteVaultV2,
+  RemoveVault as RemoveVaultV2
+} from '../../generated/VaultRegistryV2/VaultRegistryV2';
 import { loadSett } from '../entities/badger-sett';
 import { loadSettV2 } from '../entities/badger-sett-v2';
 
@@ -41,3 +45,11 @@ export function handleNewVaultV2(event: NewVaultV2): void {
     }
   }
 }
+
+// TODO: potentially use for upgrading vault state vs. registering new vaults
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
+export function handlePromoteVaultV2(event: PromoteVaultV2): void {}
+
+// TODO: consider vault state (active, deprecated, guarded) via new / promote
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
+export function handleRemoveVaultV2(event: RemoveVaultV2): void {}

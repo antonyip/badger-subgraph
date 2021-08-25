@@ -2,7 +2,8 @@
   "name": "badger-dao",
   "license": "MIT",
   "scripts": {
-    "format": "yarn run lint --fix",
+    "format": "echo 'Linter Breaks Code...'",
+    "format-orig": "yarn run lint --fix",
     "lint": "eslint ."
   },
   "dependencies": {

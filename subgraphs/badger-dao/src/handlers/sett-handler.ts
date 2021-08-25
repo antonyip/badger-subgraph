@@ -1,6 +1,6 @@
 import { Address, BigInt } from '@graphprotocol/graph-ts';
-import { Sett } from '../../generated/schema';
 import { Transfer } from '../../generated/BADGER/V1Contract';
+import { Sett } from '../../generated/schema';
 import { NO_ADDR, SettType } from '../constants';
 import { loadAffiliateSett } from '../entities/affiliate-sett';
 import { loadSett } from '../entities/badger-sett';
@@ -68,7 +68,7 @@ export function handleSettTokenTransfer(
 
   // get share and token values
   let token = share.times(sett.pricePerFullShare).div(BigInt.fromI32(10).pow(<u8>sett.decimals.toI32()));
-  
+
   // get user balances
   let fromBalance = loadUserBalance(from, sett);
   let toBalance = loadUserBalance(to, sett);

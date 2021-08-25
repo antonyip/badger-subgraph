@@ -1,13 +1,9 @@
 import { Address } from '@graphprotocol/graph-ts';
-
 import { TreeDistribution as TreeDistributionEvent } from '../../../../../generated/harvestHbtcCrv/StrategyConvexStakingOptimizer';
 import { TreeDistribution as TreeDistributionEntity } from '../../../../../generated/schema';
 import { getOrCreateToken } from '../yVault/token';
 
-export function getOrCreateTreeDistribution(
-  id: String,
-  event: TreeDistributionEvent,
-): TreeDistributionEntity {
+export function getOrCreateTreeDistribution(id: string, event: TreeDistributionEvent): TreeDistributionEntity {
   let treeDistribution = TreeDistributionEntity.load(id.toString());
   if (treeDistribution == null) {
     treeDistribution = new TreeDistributionEntity(id.toString());

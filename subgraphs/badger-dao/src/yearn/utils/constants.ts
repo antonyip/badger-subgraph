@@ -1,5 +1,4 @@
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts';
-
 import { toDecimal } from './decimals';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';

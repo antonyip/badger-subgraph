@@ -27,13 +27,13 @@ export function handleNewVaultV2(event: NewVaultV2): void {
   let vault = event.params.vault;
   let version = event.params.version;
 
-  if (version == "v1") {
+  if (version == 'v1') {
     let sett = loadSett(vault);
     if (sett == null) {
       SettVault.create(vault);
       loadSett(vault).save();
     }
-  } else if (version == "v2") {
+  } else if (version == 'v2') {
     let settV2 = loadSettV2(vault);
     if (settV2 == null) {
       SettVaultV2.create(vault);

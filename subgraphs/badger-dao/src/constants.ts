@@ -34,3 +34,9 @@ export enum SettType {
   v2,
   Affiliate,
 }
+
+export enum SettStatus {
+  experimental,
+  guarded,
+  open,
+}

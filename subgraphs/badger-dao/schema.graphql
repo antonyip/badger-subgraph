@@ -58,6 +58,8 @@ type Sett implements ERC20 & Vault & VaultBalance @entity {
   grossShareDeposit: BigInt!
   grossWithdraw: BigInt!
   grossShareWithdraw: BigInt!
+  status: String!  # dev, experimental, guarded, open，unregistered
+
 }
 
 type SettSnapshot implements ERC20 & Vault & VaultBalance & Snapshot @entity {

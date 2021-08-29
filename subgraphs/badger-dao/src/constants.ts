@@ -35,8 +35,9 @@ export enum SettType {
   Affiliate,
 }
 
-export enum SettStatus {
-  experimental,
-  guarded,
-  open,
-}
+// Order matters, same as in registry contract
+export let REGISTRY_SETT_STATUSES: string[] = [
+  "experimental",
+  "guarded",
+  "open"
+]

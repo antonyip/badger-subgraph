@@ -1,14 +1,10 @@
 {
   "chain": "mainnet",
   "registry": {
-    "address": "0x22765948A3d5048F3644b81792e4E1aA7ea3da4a",
-    "startBlock": 12883010
-  },
-  "registryV2": {
     "address": "0xfda7eb6f8b7a9e9fcfd348042ae675d1d652454f",
     "startBlock": 13006329  
   },
-  "legacysetts": [
+  "legacySetts": [
     {
       "name": "sBTCCRV",
       "address": "0xd04c48A53c111300aD41190D63681ed3dAd998eC",

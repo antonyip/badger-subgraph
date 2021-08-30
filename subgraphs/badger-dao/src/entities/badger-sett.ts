@@ -2,7 +2,7 @@ import { Address, BigInt } from '@graphprotocol/graph-ts';
 import { Sett } from '../../generated/schema';
 import { BadgerSett } from '../../generated/templates/SettVault/BadgerSett';
 import { loadSettV2 } from './badger-sett-v2'
-import { NO_ADDR, ZERO, SettStatus } from '../constants';
+import { NO_ADDR, ZERO, REGISTRY_SETT_STATUSES } from '../constants';
 import { readValue } from './contracts';
 import { loadToken } from './token';
 
@@ -53,19 +53,10 @@ export function updateSettStatus(address: Address, version: string, status: stri
 }
 
 export function SettStatusString(status: i32): string {
-  let statusString = "";
-  switch (status) {
-    case SettStatus.experimental:
-      statusString = "experimental";
-      break;
-    case SettStatus.guarded:
-      statusString = "guarded";
-      break;
-    case SettStatus.open:
-      statusString = "open";
-      break;
-    default:
-      "dev";
+  let statusString = "unknown"
+  if (0 <= status && status < REGISTRY_SETT_STATUSES.length) {
+    statusString = REGISTRY_SETT_STATUSES[status]
   }
+
   return statusString as string
 }

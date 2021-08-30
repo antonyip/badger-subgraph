@@ -26,37 +26,6 @@ dataSources:
           file: ./abis/ERC20.json
         - name: BadgerSett
           file: ./abis/BadgerSett.json
-      eventHandlers:
-        - event: NewVault(address,address)
-          handler: handleNewVault
-        - event: PromoteVault(address,address)
-          handler: handlePromoteVault
-        - event: RemoveVault(address,address)
-          handler: handleRemoveVault
-      file: ./src/handlers/registry-handler.ts
-  {{/registry}}
-  {{#registryV2}}
-  - kind: ethereum/contract
-    name: VaultRegistryV2
-    network: {{ chain }}
-    source:
-      address: "{{ address }}"
-      abi: VaultRegistryV2
-      startBlock: {{ startBlock }}
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - Sett
-        - Token
-      abis:
-        - name: VaultRegistryV2
-          file: ./abis/VaultRegistryV2.json
-        - name: ERC20
-          file: ./abis/ERC20.json
-        - name: BadgerSett
-          file: ./abis/BadgerSett.json
         - name: BadgerSettV2
           file: ./abis/BadgerSett.json
       eventHandlers:
@@ -68,9 +37,9 @@ dataSources:
           handler: handleDemoteVault
         - event: RemoveVault(address,string,address)
           handler: handleRemoveVault
-      file: ./src/handlers/registry-v2-handler.ts
-  {{/registryV2}}
-  {{#legacysetts}}
+      file: ./src/handlers/registry-handler.ts
+  {{/registry}}
+  {{#legacySetts}}
   - kind: ethereum/contract
     name: {{ name }}
     network: {{ chain }}
@@ -102,7 +71,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransferLegacy
       file: ./src/handlers/sett-legacy-handler.ts
-  {{/legacysetts}}
+  {{/legacySetts}}
   {{#setts}}
   - kind: ethereum/contract
     name: {{ name }}

@@ -62,7 +62,7 @@ export function handleSettTokenTransfer(
 
   // get share and token values
   let token = share.times(sett.pricePerFullShare).div(BigInt.fromI32(10).pow(<u8>sett.decimals.toI32()));
-  
+
   // get user balances
   let fromBalance = loadUserBalance(from, sett);
   let toBalance = loadUserBalance(to, sett);

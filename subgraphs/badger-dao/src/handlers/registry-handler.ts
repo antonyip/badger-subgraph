@@ -1,10 +1,23 @@
 import { Sett } from '../../generated/schema';
-import { SettVault, SettVaultV2 } from '../../generated/templates';
-import { NewVault, PromoteVault, DemoteVault, RemoveVault } from '../../generated/VaultRegistry/VaultRegistry';
-import { loadSett, updateSettStatus, SettStatusString } from '../entities/badger-sett';
-import { loadSettV2 } from '../entities/badger-sett-v2';
+import { SettVault } from '../../generated/templates';
+import {
+  AddKey,
+  AddVersion,
+  DemoteVault,
+  NewVault,
+  PromoteVault,
+  RemoveVault,
+  Set,
+} from '../../generated/VaultRegistry/VaultRegistry';
+import { loadSett } from '../entities/badger-sett';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
+export function handleAddKey(event: AddKey): void {}
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
+export function handleAddVersion(event: AddVersion): void {}
+
+// TODO: consider how to differentiate on author
 export function handleNewVault(event: NewVault): void {
   let vault = event.params.vault;
   let version = event.params.version;
@@ -35,3 +48,6 @@ export function handleDemoteVault(event: DemoteVault): void {
 export function handleRemoveVault(event: RemoveVault): void {
   updateSettStatus(event.params.vault, event.params.version, "unregistered");
 }
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
+export function handleSet(event: Set): void {}

@@ -13,7 +13,7 @@ export const BADGER = '0x3472a5a71965499acd81997a54bba8d852c6e53d';
 export const DIGG = '0x798d1be841a82a273720ce31c822c61a67a601c3';
 
 // evaluated constants
-export const ZERO = BigInt.fromI32(0);
+export let ZERO = BigInt.fromI32(0);
 
 // geysers
 export const GEYSERS: string[] = [
@@ -29,7 +29,7 @@ export const GEYSERS: string[] = [
   '0x7f6fe274e172ac7d096a7b214c78584d99ca988b',
 ];
 
-export enum SettType {
+export enum BadgerSettType {
   v1,
   v2,
   Affiliate,

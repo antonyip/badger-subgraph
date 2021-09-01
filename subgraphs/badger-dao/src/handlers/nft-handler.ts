@@ -3,6 +3,27 @@ import { TransferSingle as TransferSingleMeme } from '../../generated/MemeLtd/Me
 import { NFT_Token as Token, NFT_TokenBalance as TokenBalance, NFT_User as User } from '../../generated/schema';
 import { ZERO } from '../constants';
 
+function getOrCreateTokenBalance(token: string, owner: string): TokenBalance {
+  let tokenBalance = TokenBalance.load(token);
+  if (tokenBalance == null) {
+    tokenBalance = new TokenBalance(token.concat('-').concat(owner));
+    tokenBalance.token = token.toString();
+    tokenBalance.owner = owner.toString();
+    tokenBalance.amount = ZERO;
+  }
+  tokenBalance.save();
+  return tokenBalance as TokenBalance;
+}
+
+function getOrCreateUser(address: string): User {
+  let user = User.load(address);
+  if (user == null) {
+    user = new User(address);
+  }
+  user.save();
+  return user as User;
+}
+
 export function handleNFTTransfer(event: TransferSingle): void {
   let tokenObjectId = event.address.toHexString().concat('-').concat(event.params.id.toString());
 
@@ -49,24 +70,4 @@ export function handleMemeNFTTransfer(event: TransferSingleMeme): void {
 
   getOrCreateUser(event.params._to.toHexString());
   getOrCreateUser(event.params._from.toHexString());
-}
-function getOrCreateTokenBalance(token: string, owner: string): TokenBalance {
-  let tokenBalance = TokenBalance.load(token);
-  if (tokenBalance == null) {
-    tokenBalance = new TokenBalance(token.concat('-').concat(owner));
-    tokenBalance.token = token.toString();
-    tokenBalance.owner = owner.toString();
-    tokenBalance.amount = ZERO;
-  }
-  tokenBalance.save();
-  return tokenBalance as TokenBalance;
-}
-
-function getOrCreateUser(address: string): User {
-  let user = User.load(address);
-  if (user == null) {
-    user = new User(address);
-  }
-  user.save();
-  return user as User;
 }

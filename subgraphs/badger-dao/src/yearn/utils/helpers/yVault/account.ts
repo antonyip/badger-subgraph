@@ -1,13 +1,10 @@
 import {
-   Yearn_Account as Account,
-   Yearn_AccountVaultBalance as AccountVaultBalance
+  Yearn_Account as Account,
+  Yearn_AccountVaultBalance as AccountVaultBalance,
 } from '../../../../../generated/schema';
 import { BIGDECIMAL_ZERO, BIGINT_ZERO } from '../../constants';
 
-export function getOrCreateAccount(
-  id: String,
-  createIfNotFound: boolean = true,
-): Account {
+export function getOrCreateAccount(id: string, createIfNotFound: boolean = true): Account {
   // @ts-ignore: assign wrapper object to primitive
   let account = Account.load(id);
 
@@ -19,10 +16,7 @@ export function getOrCreateAccount(
   return account as Account;
 }
 
-export function getOrCreateAccountVaultBalance(
-  id: String,
-  createIfNotFound: boolean = true,
-): AccountVaultBalance {
+export function getOrCreateAccountVaultBalance(id: string, createIfNotFound: boolean = true): AccountVaultBalance {
   // @ts-ignore: assign wrapper object to primitive
   let balance = AccountVaultBalance.load(id);
 

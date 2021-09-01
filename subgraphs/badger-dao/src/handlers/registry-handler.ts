@@ -1,5 +1,5 @@
 import { Sett } from '../../generated/schema';
-import { SettVault } from '../../generated/templates';
+import { SettVault, SettVaultV2 } from '../../generated/templates';
 import {
   AddKey,
   AddVersion,
@@ -9,7 +9,8 @@ import {
   RemoveVault,
   Set,
 } from '../../generated/VaultRegistry/VaultRegistry';
-import { loadSett } from '../entities/badger-sett';
+import { loadSett, SettStatusString, updateSettStatus } from '../entities/badger-sett';
+import { loadSettV2 } from '../entities/badger-sett-v2';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
 export function handleAddKey(event: AddKey): void {}

@@ -1,5 +1,4 @@
 import { Address, log } from '@graphprotocol/graph-ts';
-
 import { Controller as ControllerContract } from '../../../../../generated/BADGER/Controller';
 import { Strategy as StrategyContract } from '../../../../../generated/BADGER/Strategy';
 import { V1Contract } from '../../../../../generated/BADGER/V1Contract';
@@ -18,10 +17,7 @@ import { BIGDECIMAL_ZERO, BIGINT_ZERO } from '../../constants';
 import { toDecimal } from '../../decimals';
 import { getOrCreateToken } from './token';
 
-export function getOrCreateVaultTransfer(
-  id: String,
-  createIfNotFound: boolean = true,
-): Transfer {
+export function getOrCreateVaultTransfer(id: string, createIfNotFound: boolean = true): Transfer {
   // @ts-ignore: assign wrapper object to primitive
   let action = Transfer.load(id);
 
@@ -33,10 +29,7 @@ export function getOrCreateVaultTransfer(
   return action as Transfer;
 }
 
-export function getOrCreateVaultDeposit(
-  id: String,
-  createIfNotFound: boolean = true,
-): Deposit {
+export function getOrCreateVaultDeposit(id: string, createIfNotFound: boolean = true): Deposit {
   // @ts-ignore: assign wrapper object to primitive
   let action = Deposit.load(id);
 
@@ -48,10 +41,7 @@ export function getOrCreateVaultDeposit(
   return action as Deposit;
 }
 
-export function getOrCreateVaultWithdrawal(
-  id: String,
-  createIfNotFound: boolean = true,
-): Withdrawal {
+export function getOrCreateVaultWithdrawal(id: string, createIfNotFound: boolean = true): Withdrawal {
   // @ts-ignore: assign wrapper object to primitive
   let action = Withdrawal.load(id);
 
@@ -63,10 +53,7 @@ export function getOrCreateVaultWithdrawal(
   return action as Withdrawal;
 }
 
-export function getOrCreateHarvest(
-  id: String,
-  createIfNotFound: boolean = true,
-): Harvest {
+export function getOrCreateHarvest(id: string, createIfNotFound: boolean = true): Harvest {
   // @ts-ignore: assign wrapper object to primitive
   let action = Harvest.load(id);
 
@@ -78,10 +65,7 @@ export function getOrCreateHarvest(
   return action as Harvest;
 }
 
-export function getOrCreateController(
-  address: Address,
-  createIfNotFound: boolean = true,
-): Controller {
+export function getOrCreateController(address: Address, createIfNotFound: boolean = true): Controller {
   let id = address.toHexString();
   let controller = Controller.load(id);
 
@@ -92,10 +76,7 @@ export function getOrCreateController(
   return controller as Controller;
 }
 
-export function getOrCreateStrategy(
-  address: Address,
-  createIfNotFound: boolean = true,
-): Strategy {
+export function getOrCreateStrategy(address: Address, createIfNotFound: boolean = true): Strategy {
   let id = address.toHexString();
   let strategy = Strategy.load(id);
 
@@ -112,10 +93,7 @@ export function getOrCreateStrategy(
   return strategy as Strategy;
 }
 
-export function getOrCreateTransaction(
-  id: String,
-  createIfNotFound: boolean = true,
-): Transaction {
+export function getOrCreateTransaction(id: string, createIfNotFound: boolean = true): Transaction {
   // @ts-ignore: assign wrapper object to primitive
   let transaction = Transaction.load(id);
 
@@ -177,12 +155,8 @@ export function getOrCreateVault(vaultAddress: Address, update: boolean = true):
     let available = vaultContract.try_available();
 
     vault.vaultBalanceRaw = !balance.reverted ? balance.value : vault.vaultBalanceRaw;
-    vault.pricePerFullShareRaw = !pricePerFullShare.reverted
-      ? pricePerFullShare.value
-      : vault.pricePerFullShareRaw;
-    vault.totalSupplyRaw = !totalSupply.reverted
-      ? totalSupply.value
-      : vault.totalSupplyRaw;
+    vault.pricePerFullShareRaw = !pricePerFullShare.reverted ? pricePerFullShare.value : vault.pricePerFullShareRaw;
+    vault.totalSupplyRaw = !totalSupply.reverted ? totalSupply.value : vault.totalSupplyRaw;
     vault.availableRaw = !available.reverted ? available.value : vault.availableRaw;
     vault.underlyingToken = underlyingToken.id;
     vault.shareToken = shareToken.id;
@@ -208,14 +182,9 @@ export function getOrCreateVault(vaultAddress: Address, update: boolean = true):
 
         vault.currentController = wrappedVault.currentController;
 
-        controllerContract = ControllerContract.bind(
-          Address.fromString(wrappedVault.currentController),
-        );
+        controllerContract = ControllerContract.bind(Address.fromString(wrappedVault.currentController));
       } else {
-        log.critical(
-          "Vault doesn't have a controller nor a wrapped vault. Vault ID: {}",
-          [vault.id],
-        );
+        log.critical("Vault doesn't have a controller nor a wrapped vault. Vault ID: {}", [vault.id]);
       }
     }
 
@@ -228,9 +197,7 @@ export function getOrCreateVault(vaultAddress: Address, update: boolean = true):
     let strategyBalance = strategyContract.try_balanceOf();
 
     vault.currentStrategy = strategy.id;
-    vault.strategyBalanceRaw = !strategyBalance.reverted
-      ? strategyBalance.value
-      : vault.strategyBalanceRaw;
+    vault.strategyBalanceRaw = !strategyBalance.reverted ? strategyBalance.value : vault.strategyBalanceRaw;
 
     vault.strategyBalance = toDecimal(vault.strategyBalanceRaw, underlyingToken.decimals);
     vault.vaultBalance = toDecimal(vault.vaultBalanceRaw, underlyingToken.decimals);
@@ -242,4 +209,3 @@ export function getOrCreateVault(vaultAddress: Address, update: boolean = true):
 
   return vault as Vault;
 }
-

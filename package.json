@@ -1,12 +1,11 @@
 {
-  "name": "badger-dao",
+  "name": "badger-dao-wrapper",
   "license": "MIT",
   "scripts": {
-    "format": "echo 'Linter Breaks Code...'",
-    "format-orig": "yarn run lint --fix",
+    "format": "yarn run lint --fix",
     "lint": "eslint ."
   },
-  "dependencies": {
+  "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.14.1",
     "eslint": "^7.18.0",

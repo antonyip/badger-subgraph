@@ -19,8 +19,7 @@
     "create-local": "graph create --node http://localhost:8020/ axejintao/badger-dao",
     "remove-local": "graph remove --node http://localhost:8020/ axejintao/badger-dao",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 axejintao/badger-dao",
-    "format": "cd ../.. && yarn run lint --fix",
-    "lint": "eslint ."
+    "format": "cd ../.. && yarn run lint --fix"
   },
   "dependencies": {
     "@graphprotocol/graph-ts": "^0.20.1"

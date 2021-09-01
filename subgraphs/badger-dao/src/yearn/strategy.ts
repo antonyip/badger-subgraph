@@ -1,5 +1,4 @@
 import { Address } from '@graphprotocol/graph-ts';
-
 import { Harvest } from '../../generated/BADGER/Strategy';
 import { BIGINT_ONE } from './utils/constants';
 import { toDecimal } from './utils/decimals';
@@ -13,10 +12,7 @@ import {
 
 export function handleHarvest(event: Harvest): void {
   let strategy = getOrCreateStrategy(event.address);
-  let transactionId = event.address
-    .toHexString()
-    .concat('-')
-    .concat(event.transaction.hash.toHexString());
+  let transactionId = event.address.toHexString().concat('-').concat(event.transaction.hash.toHexString());
   let harvest = getOrCreateHarvest(transactionId);
   let vaultAddress = Address.fromString(strategy.vault);
 
@@ -54,10 +50,7 @@ export function handleHarvest(event: Harvest): void {
   harvest.earnings = toDecimal(earningsRaw, underlyingToken.decimals);
 
   vaultAfter.totalEarningsRaw = vaultAfter.totalEarningsRaw.plus(earningsRaw);
-  vaultAfter.totalEarnings = toDecimal(
-    vaultAfter.totalEarningsRaw,
-    underlyingToken.decimals,
-  );
+  vaultAfter.totalEarnings = toDecimal(vaultAfter.totalEarningsRaw, underlyingToken.decimals);
   vaultAfter.totalHarvestCalls = vaultAfter.totalHarvestCalls.plus(BIGINT_ONE);
 
   strategy.totalEarningsRaw = strategy.totalEarningsRaw.plus(earningsRaw);

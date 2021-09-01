@@ -1,6 +1,6 @@
 import { Address, BigInt } from '@graphprotocol/graph-ts';
-import { Sett } from '../../generated/schema';
 import { Transfer } from '../../generated/BADGER/BadgerSett';
+import { Sett } from '../../generated/schema';
 import { NO_ADDR, SettType } from '../constants';
 import { loadAffiliateSett } from '../entities/affiliate-sett';
 import { loadSett } from '../entities/badger-sett';

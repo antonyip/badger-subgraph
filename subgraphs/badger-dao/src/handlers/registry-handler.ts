@@ -35,7 +35,7 @@ export function handleNewVault(event: NewVault): void {
   }
 }
 
-export function handlePromoteVault(event: PromoteVault): void {  
+export function handlePromoteVault(event: PromoteVault): void {
   let status = SettStatusString(event.params.status);
   updateSettStatus(event.params.vault, event.params.version, status);
 }
@@ -46,7 +46,7 @@ export function handleDemoteVault(event: DemoteVault): void {
 }
 
 export function handleRemoveVault(event: RemoveVault): void {
-  updateSettStatus(event.params.vault, event.params.version, "unregistered");
+  updateSettStatus(event.params.vault, event.params.version, 'unregistered');
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars-experimental
